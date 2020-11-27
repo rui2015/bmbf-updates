@@ -106,5 +106,9 @@ client.on('message', async function (message) {
         const command = message.content.split(' ')[0].slice(GuildUtils.guildPrefix.length);
         const args = message.content.split(' ').slice(1);
         CommandHandler.runCommand(client, message, command, args);
+        return;
+    }
+    if (message.mentions.has(client.user) && (message.content.split(' ').length == 1)){
+        message.reply('my prefix on this server is `' + GuildUtils.guildPrefix + '`.\nYou can use `' + GuildUtils.guildPrefix + 'help` to get a list of available commands');
     }
 });
