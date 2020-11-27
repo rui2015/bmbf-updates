@@ -35,7 +35,7 @@ client.login(config['BOT_TOKEN']);
 client.on('ready', async function(){
     await CommandHandler.loadCommands(client);
     console.log('\nBot logged in to Discord.\nBot ID: ' + client.user.id + '\nBot Tag: ' + client.user.tag + '\n');
-    console.log('Guilds list:')
+    console.log('Guilds list:');
     client.guilds.cache.forEach(Guild => {
         console.log(` - ${Guild.name} (${Guild.id})`);
         GuildUtils.getGuildPrefix(Guild.id);
@@ -79,7 +79,7 @@ client.on('ready', async function(){
 client.on('guildCreate', async function(guild) {
     console.log('\nBot added to Guild ' + guild.name + ' (' + guild.id + ')');
     console.log('Registering on the config...');
-    GuildUtils.newGuild(guild.id)
+    GuildUtils.newGuild(guild.id);
     MonitorUtils.newGuild(guild.id);
     client.users.fetch('456794789656920065').then(user => {
         user.send('Bot added to guild ' + guild.name + ' (' + guild.id + ')');
