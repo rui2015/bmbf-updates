@@ -16,6 +16,7 @@ function runcommand(client, command, message, args){
 
 		if ((cmd.name == "unregister") && (!message.member.hasPermission('MANAGE_GUILD'))) return;
 		if ((cmd.name == "register") && (!message.member.hasPermission('MANAGE_GUILD'))) return;
+		if ((cmd.name == "prefix") && (!message.member.hasPermission('MANAGE_GUILD'))) return;
 		if ((cmd.name == "role") && (!message.member.hasPermission('MANAGE_GUILD'))) return;
 		
         embed.addField(message.content.split(command)[0] + cmd.name, cmd.description);
