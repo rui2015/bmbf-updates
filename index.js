@@ -40,7 +40,7 @@ client.on('ready', async function(){
         console.log(` - ${Guild.name} (${Guild.id})`);
         GuildUtils.getGuildPrefix(Guild.id);
         if (GuildUtils.guildPrefix == null){
-            console.log('Guild ' + Guild.id + ' not found on the monitor config. Registering new guild...');
+            console.log('Guild ' + Guild.id + ' not found on the guild config. Registering new guild...');
             GuildUtils.newGuild(Guild.id);
         }
         MonitorUtils.getChannel(Guild.id);
@@ -49,6 +49,7 @@ client.on('ready', async function(){
             MonitorUtils.newGuild(Guild.id);
         }
     });
+    console.log('');
     if (debugEnabled) console.log('Debug mode enabled!');
     setIntervalAsync(async () => {
         if (debugEnabled) console.log('[Monitor] Calling getMessage');
