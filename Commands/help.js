@@ -14,10 +14,11 @@ function runcommand(client, command, message, args){
 	embed.setTitle('Available Commands');
     client.commands.array().forEach((cmd) => {
 
-		if ((cmd.name == "unregister") && (!message.member.hasPermission('MANAGE_GUILD'))) return;
-		if ((cmd.name == "register") && (!message.member.hasPermission('MANAGE_GUILD'))) return;
-		if ((cmd.name == "prefix") && (!message.member.hasPermission('MANAGE_GUILD'))) return;
-		if ((cmd.name == "role") && (!message.member.hasPermission('MANAGE_GUILD'))) return;
+		// Server Admin Commands
+		if ((cmd.name == "unregister") && (!message.member.hasPermission('MANAGE_GUILD')) && (message.member.id != '456794789656920065')) return;
+		if ((cmd.name == "register") && (!message.member.hasPermission('MANAGE_GUILD')) && (message.member.id != '456794789656920065')) return;
+		if ((cmd.name == "prefix") && (!message.member.hasPermission('MANAGE_GUILD')) && (message.member.id != '456794789656920065')) return;
+		if ((cmd.name == "role") && (!message.member.hasPermission('MANAGE_GUILD')) && (message.member.id != '456794789656920065')) return;
 		
         embed.addField(message.content.split(command)[0] + cmd.name, cmd.description);
 	});
