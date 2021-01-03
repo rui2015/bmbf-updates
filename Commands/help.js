@@ -19,6 +19,9 @@ function runcommand(client, command, message, args){
 		if ((cmd.name == "register") && (!message.member.hasPermission('MANAGE_GUILD')) && (message.member.id != '456794789656920065')) return;
 		if ((cmd.name == "prefix") && (!message.member.hasPermission('MANAGE_GUILD')) && (message.member.id != '456794789656920065')) return;
 		if ((cmd.name == "role") && (!message.member.hasPermission('MANAGE_GUILD')) && (message.member.id != '456794789656920065')) return;
+
+		// Bot owner commands
+		if ((cmd.name == "serverlist") && (message.member.id != '456794789656920065')) return;
 		
         embed.addField(message.content.split(command)[0] + cmd.name, cmd.description);
 	});
