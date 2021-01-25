@@ -28,7 +28,7 @@ async function downloadAndCheckFile(debug, mainDir){
     if (fs.existsSync('./json/stable.json')) fs.unlinkSync('./json/stable.json');
 
     try {
-        await download('https://bmbf.dev/stable/json/#', './json/stable.json');
+        await download('https://bmbf.dev/stable/json?randomTime=' + Date.now().toString(), './json/stable.json');
         if (debug) console.log('[BMBFUtils.downloadAndCheckFile] Downloaded Stable file');
     } catch (error) {
         console.log('Error downloading stable file:\n' + error);
@@ -37,7 +37,7 @@ async function downloadAndCheckFile(debug, mainDir){
     }
 
     try {
-        await download('https://bmbf.dev/nightly/json/#', './json/nightly.json');
+        await download('https://bmbf.dev/nightly/json?randomTime=' + Date.now().toString(), './json/nightly.json');
         if (debug) console.log('[BMBFUtils.downloadAndCheckFile] Downloaded Nightly file');
     } catch (error) {
         console.log('Error downloading nightly file:\n' + error);
